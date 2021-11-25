@@ -8,6 +8,9 @@ class Category(MPTTModel):
     slug = models.SlugField(max_length=100)
     parent = TreeForeignKey('self', related_name='children', on_delete=models.SET_NULL, null=True, blank=True)
 
+    def __str__(self):
+        return self.name
+
     class Meta:
         verbose_name_plural = 'Категории'
         verbose_name = 'Категория'
@@ -17,7 +20,7 @@ class Category(MPTTModel):
 
 
 class Tag(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, verbose_name='Название')
     slug = models.SlugField(max_length=100)
 
     class Meta:
