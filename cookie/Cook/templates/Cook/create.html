@@ -1,0 +1,22 @@
+{% extends 'Cook/basic.html' %}
+{% load static %}
+
+{% block title %}
+Добавление рецепта
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css"
+      href="{% static 'Cook/style.css' %}">
+<br><br><br>
+<form class='search_form' method="post">
+    <h3>Добавление рецепта</h3>
+    {% csrf_token %}
+    {{ form.name }}<br>
+    {{ form.cook_time }}<br>
+    {{ form.ingredients }}<br>
+    {{ form.directions }}<br>
+    <button type="submit" class="btn btn-success">Добавить</button>
+    <span> {{ error }}</span>
+</form>
+{% endblock %}

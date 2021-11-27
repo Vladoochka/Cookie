@@ -1,0 +1,62 @@
+article {
+float: left;
+}
+
+.wgh {
+    display: grid;
+    background-color: green;
+    height: 459px;
+    width: 285px;
+    float: left;
+    font-size: 20px;
+}
+
+a {
+color: black;
+text-decoration: none;
+display: block;
+}
+
+.bbb {
+display: grid;
+}
+
+.ggg {
+display: grid;
+margin-top: -9%;
+position: inherit;
+float: left;
+}
+
+.ppp {
+display: grid;
+
+}
+
+.rrr {
+display: grid;
+margin-top: -14%;
+position: inherit;
+float: left;
+}
+
+a:hover {
+color: white;
+}
+
+p {
+color: black;
+font-family: cursive;
+}
+
+.search_form {
+position: relative;
+left: 350px;
+width: 50%;
+padding: 0px 5% 0px 100px;
+box-sizing: border-box;
+}
+
+body {
+background: green;
+}

@@ -14,9 +14,7 @@ class Category(MPTTModel):
     class Meta:
         verbose_name_plural = 'Категории'
         verbose_name = 'Категория'
-
-    class MPTTMeta:
-        order_insertion_by = ['name']
+        ordering = ['name']
 
 
 class Tag(models.Model):
@@ -44,8 +42,6 @@ class Post(models.Model):
 
 class Recipe(models.Model):
     name = models.CharField(max_length=100)
-    serves = models.CharField(max_length=50)
-    prep_time = models.PositiveIntegerField(default=0)
     cook_time = models.PositiveIntegerField(default=0)
     ingredients = models.TextField()
     directions = models.TextField()

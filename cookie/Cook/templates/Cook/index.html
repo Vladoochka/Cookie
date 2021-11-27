@@ -1,0 +1,38 @@
+{% extends 'Cook/basic.html' %}
+{% load static %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css"
+      href="{% static 'Cook/style.css' %}">
+<br>
+<br>
+<article><img
+        src="https://avatars.mds.yandex.net/get-zen_doc/50840/pub_5d726e253639e600ac3eff46_5d726e2606cc4600acc0bfaf/scale_1200"
+        alt="Картинка кексов" width="500"></article>
+<div class="wgh">
+    {% for el in category %}
+    <center><br><b class="nav-link-menu"><a href="{{ el.pk }}">{{ el.name }}</a></b></center>
+    {% endfor %}
+</div>
+<div class="bbb">
+    <img src="https://fs2.tvoydnevnik.com/api2/image/getById/101/blog/24331"
+         alt="Картинка смузи" width="740">
+</div>
+<div class="ggg">
+    <img src="https://s3-eu-west-1.amazonaws.com/images.linnlive.com/9e2de4846a0d1e1b62ec42ffbea708c6/5e4b51e2-5c9a-466b-87d4-1f9e47d95725.jpg"
+         alt="Картинка кексов" width="500">
+</div>
+<div class="ppp">
+    <img src="https://skinali-catalog.com/upload/resize_cache/iblock/b52/1920_537_18e67e9561e76dbcea1c514c4ca2e730a/b5227b488f7ed0a7860614fc3275c6b1.jpg"
+         alt="Картинка шоколада" width="1025" height=240>
+</div>
+<div class="rrr">
+    <img src="https://www.doganbulgurlarizahireevi.com/image/cache/catalog/slider/sekerleme-1920x600.jpg"
+         alt="Картинка конфеток" width="500" height="215">
+</div>
+{% endblock %}
+
