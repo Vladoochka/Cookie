@@ -5,17 +5,26 @@
 Рецепты
 {% endblock %}
 
+{% block right %}
+<form class="d-flex">
+    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success" type="submit">Search</button>
+</form>
+{% endblock %}
+
 {% block content %}
 <link rel="stylesheet" type="text/css"
       href="{% static 'Cook/style_1.css' %}">
 <br><br><br>
-<center><div class="yuy"> {% for el in recipe %}
+<center>
+    <div class="yuy"> {% for el in recipe %}
         <h3> {{ el.name }} </h3>
         <p> Время приготовления: {{el.cook_time}} </p>
         <p> Ингредиенты: {{el.ingredients}} </p>
         <p> {{el.directions}} </p>
         <img src="{{el.image.url}}" width="600">
-    <br><br><br><br><br><br>
-    {% endfor %}
-</div></center>
+        <br><br><br><br><br><br>
+        {% endfor %}
+    </div>
+</center>
 {% endblock %}
