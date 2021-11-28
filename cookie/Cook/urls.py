@@ -1,8 +1,9 @@
 from django.urls import path
 from . import views
+from django.conf.urls import url
 
 urlpatterns = [
     path('', views.index),
     path('<int:category_id>/', views.show_post),
-    path('create/', views.create),
+    url('create/', views.create),
 ]

@@ -9,13 +9,15 @@
 <link rel="stylesheet" type="text/css"
       href="{% static 'Cook/style.css' %}">
 <br><br><br>
-<form class='search_form' method="post">
+<form class='search_form' enctype="multipart/form-data" method="post">
     <h3>Добавление рецепта</h3>
     {% csrf_token %}
     {{ form.name }}<br>
     {{ form.cook_time }}<br>
     {{ form.ingredients }}<br>
     {{ form.directions }}<br>
+    {{ form.category }}<br><br>
+    {{ form.image }}<br><br>
     <button type="submit" class="btn btn-success">Добавить</button>
     <span> {{ error }}</span>
 </form>

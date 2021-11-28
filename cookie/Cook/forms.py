@@ -1,16 +1,16 @@
 from .models import Recipe
-from django.forms import ModelForm, TextInput, NumberInput, Textarea
+from django.forms import ModelForm, TextInput, Textarea
 
 
 class RecipeForm(ModelForm):
     class Meta:
         model = Recipe
-        fields = ['name', 'cook_time', 'ingredients', 'directions']
+        fields = ['name', 'cook_time', 'ingredients', 'directions', 'category', 'image']
         widgets = {'name': TextInput(attrs={
             'class': 'form-control',
             'placeholder': "Введите название"
         }),
-            'cook_time': NumberInput(attrs={
+            'cook_time': TextInput(attrs={
                 'class': 'form-control',
                 'placeholder': "Укажите время приготовления"
             }),
