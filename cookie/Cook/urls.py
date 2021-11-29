@@ -7,6 +7,6 @@ urlpatterns = [
     path('<int:category_id>/', views.show_post),
     url('accounts/', include('django.contrib.auth.urls')),
     url('accounts/', include('accounts.urls')),
-    url('create/', views.create),
+    url('create/', views.create, name='create'),
     path('search/', views.SearchResultsView.as_view(), name='search_results')
 ]

@@ -1,7 +1,12 @@
 {% extends 'Cook/basic.html' %}
 {% load static %}
+
 {% block title %}
 Найденное
+{% endblock %}
+
+{% block right %}
+<p class="disable">CookieCookieCookieCookieCookieCookieCookieCookieCookieCookieCookieCookieCookieCookie</p>
 {% endblock %}
 
 {% block content %}
@@ -11,16 +16,16 @@
 <center><h1>Найденные результаты</h1><br>
     <div class="yuy">
         {% for tags in object_list %}
-            <h3>{{ tags.name }}</h3>
-            <p> Время приготовления: {{tags.cook_time}} </p>
-            <p> Ингредиенты: {{tags.ingredients}} </p>
-            <p> {{tags.directions}} </p>
-            <img src="{{tags.image.url}}" width="600">
-            <br><br>{% for tag in tags.tags.all %}
-            <b>| </b>{{ tag }}<b> |</b>
-            {% endfor %}
+        <h3>{{ tags.name }}</h3>
+        <p> Время приготовления: {{tags.cook_time}} </p>
+        <p> Ингредиенты: {{tags.ingredients}} </p>
+        <p> {{tags.directions}} </p>
+        <img src="{{tags.image.url}}" width="600">
+        <br><br>{% for tag in tags.tags.all %}
+        <b>| </b>{{ tag }}<b> |</b>
+        {% endfor %}
         <br><br><br><br><br><br><br>
         {% endfor %}
-</div>
+    </div>
 </center>
 {% endblock %}

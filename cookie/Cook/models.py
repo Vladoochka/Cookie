@@ -3,8 +3,7 @@ from mptt.models import MPTTModel, TreeForeignKey
 
 
 class Category(MPTTModel):
-    name = models.CharField(max_length=100)
-    slug = models.SlugField(max_length=100)
+    name = models.CharField(max_length=100, verbose_name='Название')
     parent = TreeForeignKey('self', related_name='children', on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
@@ -18,7 +17,6 @@ class Category(MPTTModel):
 
 class Tag(models.Model):
     name = models.CharField(max_length=100, verbose_name='Название')
-    slug = models.SlugField(max_length=100)
 
     def __str__(self):
         return self.name
@@ -29,13 +27,18 @@ class Tag(models.Model):
 
 
 class Recipe(models.Model):
-    name = models.CharField(max_length=100)
-    cook_time = models.CharField(max_length=100)
-    ingredients = models.TextField()
-    directions = models.TextField()
-    category = models.ForeignKey(Category, related_name='recipe', on_delete=models.SET_NULL, null=True)
-    image = models.ImageField(upload_to='articles/')
-    tags = models.ManyToManyField(Tag, related_name='recipe')
+    name = models.CharField(max_length=100, verbose_name='Название')
+    cook_time = models.CharField(max_length=100, verbose_name='Время приготовления')
+    ingredients = models.TextField(verbose_name='Ингредиенты')
+    directions = models.TextField(verbose_name='Описание')
+    category = models.ForeignKey(
+        Category,
+        related_name='recipe',
+        on_delete=models.SET_NULL,
+        null=True,
+        verbose_name='Категория')
+    image = models.ImageField(upload_to='articles/', verbose_name='Картинка')
+    tags = models.ManyToManyField(Tag, related_name='recipe', verbose_name='Теги')
 
     class Meta:
         verbose_name_plural = 'Рецепты'

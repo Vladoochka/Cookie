@@ -1,26 +1,19 @@
 from django.shortcuts import render, redirect
-from .models import Category, Recipe, Tag
+from .models import Category, Recipe
 from .forms import RecipeForm
 from django.views.generic import ListView
 from django.db.models import Q
 
 
 def show_post(request, category_id):
+    num = [8, 7, 9, 6, 10, 11]
     if category_id == 2:
         recipe = Recipe.objects.all()
-    elif category_id == 8:
-        recipe = Recipe.objects.filter(category_id=8)
-    elif category_id == 7:
-        recipe = Recipe.objects.filter(category_id=7)
-    elif category_id == 9:
-        recipe = Recipe.objects.filter(category_id=9)
-    elif category_id == 6:
-        recipe = Recipe.objects.filter(category_id=6)
-    elif category_id == 10:
-        recipe = Recipe.objects.filter(category_id=10)
-    elif category_id == 11:
-        recipe = Recipe.objects.filter(category_id=11)
-    return render(request, 'Cook/food.html', {'recipe': recipe})
+    else:
+        for i in num:
+            if category_id == i:
+                recipe = Recipe.objects.filter(category_id=i)
+    return render(request, 'Cook/food.html', {'title': 'Рецепты', 'recipe': recipe})
 
 
 def index(request):
