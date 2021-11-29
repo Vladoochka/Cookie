@@ -1,0 +1,31 @@
+{% load static %}
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400"
+          rel="stylesheet">
+    <link href="{% static 'Cook/style_2.css' %}" rel="stylesheet">
+</head>
+<body>
+<center>
+    <article class="art">
+        <div>
+            <header><br><br>
+                <div class="nav-left">
+                    <h1><a href="{% url 'home' %}">Главная</a></h1>
+                </div>
+                <br>
+            </header>
+            {% if user.is_authenticated %}
+            <p>Привет, {{ user.username }}!</p>
+            <p><a href="{% url 'logout' %}">Выход</a></p>
+            {% else %}
+            {% block header %}{% endblock %}
+            {% endif %}
+            {% block content %}
+            {% endblock content %}
+        </div>
+    </article>
+</center>
+</body>
+</html>

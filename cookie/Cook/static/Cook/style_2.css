@@ -1,0 +1,27 @@
+body {
+background: green;
+}
+
+.art {
+background-color: grey;
+width: 40%;
+height: 400;
+color: black;
+border: solid black;
+font-size: 18;
+}
+
+a {
+color: black;
+text-decoration: none;
+display: block;
+font-size: 35;
+}
+
+a:hover {
+color: white;
+}
+
+p {
+color: black;
+}

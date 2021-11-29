@@ -1,0 +1,16 @@
+{% extends 'Cook/base.html' %}
+{% block title %}
+Авторизация
+{% endblock %}
+{% block header %}
+<p>Вы не авторизованы</p>
+{% endblock %}
+{% block content %}
+{% if not request.user.is_authenticated %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Вход</button>
+</form>
+{% endif%}
+{% endblock content %}

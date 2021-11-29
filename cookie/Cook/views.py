@@ -26,6 +26,10 @@ def index(request):
     return render(request, 'Cook/index.html', {'title': 'Главная страница сайта', 'category': category})
 
 
+def register(request):
+    return render(request, 'registration/login.html')
+
+
 def create(request):
     error = ''
     if request.method == 'POST':

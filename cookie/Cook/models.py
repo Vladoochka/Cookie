@@ -16,6 +16,7 @@ class Category(MPTTModel):
         verbose_name = 'Категория'
         ordering = ['name']
 
+
 # class Tag(models.Model):
 #     name = models.CharField(max_length=100, verbose_name='Название')
 #     slug = models.SlugField(max_length=100)
@@ -46,7 +47,6 @@ class Recipe(models.Model):
     directions = models.TextField()
     category = models.ForeignKey(Category, related_name='recipe', on_delete=models.SET_NULL, null=True)
     image = models.ImageField(upload_to='articles/')
-    # post = models.ForeignKey(Post, related_name='recipe', on_delete=models.SET_NULL, null=True, blank=True)
 
     class Meta:
         verbose_name_plural = 'Рецепты'
@@ -54,7 +54,6 @@ class Recipe(models.Model):
 
     def __str__(self):
         return self.name
-
 
 # class Comment(models.Model):
 #     name = models.CharField(max_length=50)
