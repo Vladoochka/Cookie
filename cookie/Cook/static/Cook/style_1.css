@@ -13,3 +13,7 @@ color: white;
 body {
 background: green;
 }
+
+li {
+list-style-type: none; /* Убираем точки маркеры */
+}

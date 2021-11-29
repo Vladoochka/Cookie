@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
-from .models import Category, Recipe
+from .models import Category, Recipe, Tag
 from .forms import RecipeForm
+from django.views.generic import ListView
+from django.db.models import Q
 
 
 def show_post(request, category_id):
@@ -26,10 +28,6 @@ def index(request):
     return render(request, 'Cook/index.html', {'title': 'Главная страница сайта', 'category': category})
 
 
-def register(request):
-    return render(request, 'registration/login.html')
-
-
 def create(request):
     error = ''
     if request.method == 'POST':
@@ -45,3 +43,13 @@ def create(request):
     context = {'form': form,
                'error': error}
     return render(request, 'Cook/create.html', context)
+
+
+class SearchResultsView(ListView):
+    model = Recipe
+    template_name = 'Cook/search_results.html'
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        object_list = Recipe.objects.filter(Q(name__icontains=query) | Q(ingredients__icontains=query))
+        return object_list

@@ -8,4 +8,5 @@ urlpatterns = [
     url('accounts/', include('django.contrib.auth.urls')),
     url('accounts/', include('accounts.urls')),
     url('create/', views.create),
+    path('search/', views.SearchResultsView.as_view(), name='search_results')
 ]

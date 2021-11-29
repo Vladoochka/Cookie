@@ -6,8 +6,8 @@
 {% endblock %}
 
 {% block right %}
-<form class="d-flex">
-    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+<form action="{% url 'search_results' %}" method="get" class="d-flex">
+    <input name="q" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
     <button class="btn btn-outline-success" type="submit">Search</button>
 </form>
 {% endblock %}
@@ -23,7 +23,10 @@
         <p> Ингредиенты: {{el.ingredients}} </p>
         <p> {{el.directions}} </p>
         <img src="{{el.image.url}}" width="600">
-        <br><br><br><br><br><br>
+        <br><br>{% for tag in el.tags.all %}
+        <b>| </b>{{ tag }}<b> |</b>
+        {% endfor %}
+        <br><br><br><br><br><br><br>
         {% endfor %}
     </div>
 </center>

@@ -5,7 +5,7 @@ from django.forms import ModelForm, TextInput, Textarea
 class RecipeForm(ModelForm):
     class Meta:
         model = Recipe
-        fields = ['name', 'cook_time', 'ingredients', 'directions', 'category', 'image']
+        fields = ['name', 'cook_time', 'ingredients', 'directions', 'category', 'image', 'tags']
         widgets = {'name': TextInput(attrs={
             'class': 'form-control',
             'placeholder': "Введите название"
